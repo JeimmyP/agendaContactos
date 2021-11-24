@@ -7,7 +7,7 @@ import { showContacts, showContactById, createContact, updateContact, deleteCont
 // init express router
 const router = express.Router();
   
-// Get All Contact
+// Get All Contacts
 router.get('/contacts', showContacts);
   
 // Get Single Contact

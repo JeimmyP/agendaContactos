@@ -3,7 +3,7 @@ import db from "../config/database.js";
   
 // Get All Contacts
 export const getContacts = (result) => {
-    db.query("SELECT * FROM contact", (err, results) => {             
+    db.query("SELECT * FROM contacto", (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -15,7 +15,7 @@ export const getContacts = (result) => {
   
 // Get Single Contact
 export const getContactById = (id, result) => {
-    db.query("SELECT * FROM contact WHERE contact_id = ?", [id], (err, results) => {             
+    db.query("SELECT * FROM contacto WHERE id = ?", [id], (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -27,7 +27,7 @@ export const getContactById = (id, result) => {
   
 // Insert Contact to Database
 export const insertContact = (data, result) => {
-    db.query("INSERT INTO contact SET ?", [data], (err, results) => {             
+    db.query("INSERT INTO contacto SET ?", [data], (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -39,7 +39,8 @@ export const insertContact = (data, result) => {
   
 // Update Contact to Database
 export const updateContactById = (data, id, result) => {
-    db.query("UPDATE contact SET contact_name = ?, contact_phone = ?, contact_address = ?, contact_email = ? WHERE contact_id = ?", [data.contact_name, data.contact_phone, data.contact_address, data.contact_email, id], (err, results) => {             
+    db.query("UPDATE contacto SET name = ?, phone = ?, address = ?, email = ? WHERE id = ?", 
+        [data.name, data.phone, data.address, data.email, id], (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -51,7 +52,7 @@ export const updateContactById = (data, id, result) => {
   
 // Delete Contact to Database
 export const deleteContactById = (id, result) => {
-    db.query("DELETE FROM contact WHERE contact_id = ?", [id], (err, results) => {             
+    db.query("DELETE FROM contacto WHERE id = ?", [id], (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
