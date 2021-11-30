@@ -40,7 +40,7 @@ export const insertContact = (data, result) => {
 // Update Contact to Database
 export const updateContactById = (data, id, result) => {
     db.query("UPDATE contacto SET name = ?, phone = ?, address = ?, email = ? WHERE id = ?", 
-        [data.name, data.phone, data.address, data.email, id], (err, results) => {             
+        [data.contact_name, data.contact_phone, data.contact_address, data.contact_email, id], (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
